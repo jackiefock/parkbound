@@ -8,7 +8,9 @@ register an account, browse a generated day for any park and date, and save it
 as a plan they can edit and revisit.
 
 **Live demo:** https://parkbound.vercel.app
+
 **API base URL:** https://parkbound-production.up.railway.app
+
 **Source:** https://github.com/jackiefock/parkbound
 
 ---
