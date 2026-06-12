@@ -7,8 +7,9 @@ parades, and character meets with the films worth "bounding" to that day. Users
 register an account, browse a generated day for any park and date, and save it
 as a plan they can edit and revisit.
 
-**Live demo:** _add your deployed front-end URL here after deploying_
-**API base URL:** _add your deployed back-end URL here after deploying_
+**Live demo:** https://parkbound.vercel.app
+**API base URL:** https://parkbound-production.up.railway.app
+**Source:** https://github.com/jackiefock/parkbound
 
 ---
 
@@ -114,52 +115,18 @@ See `docs/API.md` for the full request and response details. In short:
 
 ---
 
-## Database design (ERD)
-
-```mermaid
-erDiagram
-    users ||--o{ plans : "has"
-    plans ||--o{ plan_items : "contains"
-
-    users {
-        int id PK
-        varchar username
-        varchar email
-        varchar password_hash
-        timestamp created_at
-    }
-    plans {
-        int id PK
-        int user_id FK
-        varchar title
-        varchar park
-        date visit_date
-        varchar bound_film
-        text notes
-        timestamp created_at
-        timestamp updated_at
-    }
-    plan_items {
-        int id PK
-        int plan_id FK
-        varchar event_title
-        varchar event_time
-        varchar event_type
-        varchar location
-    }
-```
-
-A user has many plans, and a plan has many plan items. Deleting a user cascades
-to their plans, and deleting a plan cascades to its items.
-
----
-
 ## Deployment
 
-- Front-end deploys to Netlify or Vercel. Set `VITE_API_URL` to the deployed API.
-- Back-end deploys to Railway, which also hosts the MySQL database.
-- Set the server's environment variables (DB connection, `JWT_SECRET`,
-  `CLIENT_ORIGIN`) in the host's dashboard rather than committing them.
+This project is deployed:
+
+- **Front-end:** Vercel, at https://parkbound.vercel.app. The build's root
+  directory is `client`, and `VITE_API_URL` is set to the Railway API URL.
+- **Back-end:** Railway, at https://parkbound-production.up.railway.app. The
+  service's root directory is `server`.
+- **Database:** MySQL, hosted on Railway alongside the back-end.
+
+Environment variables (DB connection, `JWT_SECRET`, `CLIENT_ORIGIN`) are set in
+each host's dashboard rather than committed to the repo.
 
 ---
 
