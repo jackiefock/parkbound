@@ -8,9 +8,7 @@ register an account, browse a generated day for any park and date, and save it
 as a plan they can edit and revisit.
 
 **Live demo:** https://parkbound.vercel.app
-
 **API base URL:** https://parkbound-production.up.railway.app
-
 **Source:** https://github.com/jackiefock/parkbound
 
 ---
@@ -114,6 +112,9 @@ See `docs/API.md` for the full request and response details. In short:
 - `GET /api/parks`, `GET /api/days?park=&date=`
 - `GET/POST/PUT/DELETE /api/plans` and `/api/plans/:id`
 - `POST /api/plans/:id/items`, `DELETE /api/plans/:id/items/:itemId`
+
+A user has many plans, and a plan has many plan items. Deleting a user cascades
+to their plans, and deleting a plan cascades to its items.
 
 ---
 
